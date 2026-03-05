@@ -1,4 +1,5 @@
 # Taichi Gravity Swarm Simulation
+![ezgif-8b25e214e1cbb409](https://github.com/user-attachments/assets/6717c6be-05a2-4fa7-bf48-79086b92e6b9)
 
 ## 项目简介
 
