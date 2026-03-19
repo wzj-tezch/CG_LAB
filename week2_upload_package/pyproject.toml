@@ -1,0 +1,10 @@
+[project]
+name = "cg"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "imageio>=2.37.3",
+    "taichi>=1.7.4",
+]
