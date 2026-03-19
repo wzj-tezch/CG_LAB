@@ -38,9 +38,48 @@ uv sync
 在项目根目录执行以下命令：
 
 ```bash
-# 使用 Module 运行模式
-uv run -m src.Work0.main
+# Week2: MVP 变换实验（本次作业）
+uv run -m week2.main
 ```
+
+## Week2：MVP 变换实验说明
+
+### 实现内容
+
+- 已实现 `get_model_matrix(angle)`：绕 `Z` 轴旋转的模型矩阵
+- 已实现 `get_view_matrix(eye_pos)`：将相机位置平移到原点的视图矩阵
+- 已实现 `get_projection_matrix(eye_fov, aspect_ratio, zNear, zFar)`：
+  先透视到正交，再执行正交投影
+- 渲染内容包含：
+  - 基础要求：线框三角形
+  - 选做内容：线框立方体（8 顶点、12 边）
+
+### 交互按键
+
+- `A`：逆时针旋转
+- `D`：顺时针旋转
+- `Esc`：退出程序
+
+### 验收标准
+
+- 程序窗口分辨率为 `700x700`
+- 可看到三角形与立方体线框
+- 按 `A/D` 可连续旋转
+- 存在透视效果（远小近大）
+
+### 生成 GIF（用于作业展示）
+
+```bash
+python -m week2.make_gif
+```
+
+生成文件路径：
+
+- `assets/week2/mvp_demo.gif`
+
+效果预览：
+
+![week2-mvp-demo](assets/week2/mvp_demo.gif)
 
 ## 功能说明
 
