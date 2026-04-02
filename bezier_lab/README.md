@@ -4,6 +4,12 @@
 - **助教**：张怡冉  
 - **课程主页**：https://zhanghongwen.cn/cg  
 
+## 动图演示
+
+![贝塞尔曲线演示：控制多边形（灰线）、曲线（绿色光栅化）、控制点（红圆）](assets/bezier_demo.gif)
+
+动图由仓库内 [`export_demo_gif.py`](export_demo_gif.py) 生成。若需重新导出，请先安装 Pillow：`pip install pillow`，再在 `bezier_lab` 目录执行 `python export_demo_gif.py`。
+
 ## 内容说明
 
 使用 De Casteljau 算法在 CPU 端采样贝塞尔曲线，将采样点批量传入 GPU，通过 `@ti.kernel` 并行完成光栅化（点亮 `pixels` 帧缓冲）。控制点通过 GGUI 绘制，支持控制多边形（灰线）与曲线（绿色）叠加显示。
