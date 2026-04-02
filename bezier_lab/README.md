@@ -10,6 +10,14 @@
 
 动图由仓库内 [`export_demo_gif.py`](export_demo_gif.py) 生成。
 
+## 静态参考效果图
+
+（与实验说明中的参考效果一致；因飞书文档常无法外链展示，此处用脚本按同一视觉规范绘制。）
+
+![参考效果：控制点、控制多边形、光栅化贝塞尔曲线](assets/reference_effect.png)
+
+生成方式：`pip install pillow` 后执行 `python export_reference_figure.py`，输出 `assets/reference_effect.png`。
+
 ## 内容说明
 
 使用 De Casteljau 算法在 CPU 端采样贝塞尔曲线，将采样点批量传入 GPU，通过 `@ti.kernel` 并行完成光栅化（点亮 `pixels` 帧缓冲）。控制点通过 GGUI 绘制，支持控制多边形（灰线）与曲线（绿色）叠加显示。
