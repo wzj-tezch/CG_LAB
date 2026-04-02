@@ -1,8 +1,11 @@
 """
 贝塞尔曲线实验：De Casteljau + Taichi GGUI + GPU 光栅化。
+选做：A 键开关 3×3 距离反走样（CPU 批量写入帧缓冲）；B 键在贝塞尔 / 均匀三次 B 样条之间切换。
 """
 import numpy as np
 import taichi as ti
+
+from curve_tools import raster_antialiased, sample_bezier, sample_uniform_cubic_bspline
 
 WIDTH = 800
 HEIGHT = 800
@@ -10,6 +13,8 @@ NUM_SEGMENTS = 1000
 NUM_CURVE_POINTS = NUM_SEGMENTS + 1
 MAX_CONTROL_POINTS = 100
 MAX_LINE_VERTICES = 2 * (MAX_CONTROL_POINTS - 1)
+BG = (0.06, 0.06, 0.08)
+CURVE_RGB = (0.15, 1.0, 0.25)
 
 try:
     ti.init(arch=ti.gpu)
@@ -38,18 +43,7 @@ def draw_curve_kernel(n: ti.i32):
             pixels[ix, iy] = ti.Vector([0.15, 1.0, 0.25])
 
 
-def de_casteljau(points: list, t: float) -> np.ndarray:
-    """De Casteljau：纯 Python，返回参数 t 处曲线点 [x, y]，坐标为归一化浮点。"""
-    if len(points) == 0:
-        return np.array([0.0, 0.0], dtype=np.float32)
-    pts = [np.array((float(p[0]), float(p[1])), dtype=np.float64) for p in points]
-    while len(pts) > 1:
-        pts = [(1.0 - t) * pts[k] + t * pts[k + 1] for k in range(len(pts) - 1)]
-    return pts[0].astype(np.float32)
-
-
 def fill_line_vertices(control: list[tuple[float, float]], out: np.ndarray) -> None:
-    """控制多边形：线段列表顺序 (P0,P1), (P1,P2), ...，未使用位置放在屏外。"""
     out.fill(-10.0)
     n = len(control)
     if n < 2:
@@ -63,31 +57,53 @@ def fill_line_vertices(control: list[tuple[float, float]], out: np.ndarray) -> N
 
 def main() -> None:
     control: list[tuple[float, float]] = []
+    use_aa = False
+    use_bspline = False
     curve_np = np.zeros((NUM_CURVE_POINTS, 2), dtype=np.float32)
     gui_np = np.full((MAX_CONTROL_POINTS, 2), -10.0, dtype=np.float32)
     line_np = np.full((MAX_LINE_VERTICES, 2), -10.0, dtype=np.float32)
 
-    window = ti.ui.Window("贝塞尔曲线 (De Casteljau)", (WIDTH, HEIGHT), vsync=True)
+    window = ti.ui.Window(
+        "贝塞尔/B样条 | A 反走样  B 切换曲线模式  C 清空",
+        (WIDTH, HEIGHT),
+        vsync=True,
+    )
     canvas = window.get_canvas()
     line_width = 2.0 / float(HEIGHT)
 
     while window.running:
-        clear_pixels()
-
         while window.get_event(ti.ui.PRESS):
             key = window.event.key
             if key == "c" or key == "C":
                 control.clear()
+            elif key == "a" or key == "A":
+                use_aa = not use_aa
+            elif key == "b" or key == "B":
+                use_bspline = not use_bspline
             elif key == ti.ui.LMB and len(control) < MAX_CONTROL_POINTS:
                 x, y = window.get_cursor_pos()
                 control.append((float(x), float(y)))
 
         if len(control) >= 2:
-            for i in range(NUM_CURVE_POINTS):
-                t = i / float(NUM_SEGMENTS)
-                curve_np[i] = de_casteljau(control, t)
-            curve_points_field.from_numpy(curve_np)
-            draw_curve_kernel(NUM_CURVE_POINTS)
+            if use_bspline:
+                curve_np = sample_uniform_cubic_bspline(control, NUM_CURVE_POINTS)
+            else:
+                curve_np = sample_bezier(control, NUM_CURVE_POINTS)
+
+        if use_aa:
+            if len(control) >= 2:
+                frame = raster_antialiased(
+                    curve_np, WIDTH, HEIGHT, BG, CURVE_RGB
+                )
+            else:
+                frame = np.empty((WIDTH, HEIGHT, 3), dtype=np.float32)
+                frame[:, :] = BG
+            pixels.from_numpy(frame)
+        else:
+            clear_pixels()
+            if len(control) >= 2:
+                curve_points_field.from_numpy(curve_np)
+                draw_curve_kernel(NUM_CURVE_POINTS)
 
         canvas.set_image(pixels)
 
