@@ -77,9 +77,9 @@ pip install -r requirements.txt
 
 ## 五、效果预览（GIF）
 
-下图由 `export_preview_gif.py` 在无窗口模式下循环改变 **Ka / Kd / Ks / Shininess** 并导出。若仓库中缺少该文件，在本目录执行 `python export_preview_gif.py` 重新生成。
+效果动图使用本机录屏：`D:\桌面\屏幕录制 2026-04-16 181624.gif`（已复制到本目录 `assets` 下同名文件，便于 GitHub 与本地预览）。
 
-![Phong 光照效果预览（参数随时间循环调节）](assets/preview.gif)
+![Phong 交互与光照效果（屏幕录制）](<assets/屏幕录制 2026-04-16 181624.gif>)
 
 ---
 
@@ -107,4 +107,5 @@ pip install -r requirements.txt
 | `phong_raycast.py` | 主程序：渲染 + 交互窗口 |
 | `export_preview_gif.py` | 导出 `assets/preview.gif` |
 | `requirements.txt` | Python 依赖列表 |
-| `assets/preview.gif` | 效果动图（可重新生成） |
+| `assets/屏幕录制 2026-04-16 181624.gif` | 效果动图（录屏；源路径见上文） |
+| `assets/preview.gif` | 可选：脚本 `export_preview_gif.py` 生成的循环参数预览 |

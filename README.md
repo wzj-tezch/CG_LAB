@@ -12,7 +12,9 @@
 
 ### Phong 光照（`phong_lab`）
 
-![Phong 预览](phong_lab/assets/preview.gif)
+动图源文件：`D:\桌面\屏幕录制 2026-04-16 181624.gif`（仓库内副本见 `phong_lab/assets`）。
+
+![Phong 预览](<phong_lab/assets/屏幕录制 2026-04-16 181624.gif>)
 
 ### Week2 MVP
 
