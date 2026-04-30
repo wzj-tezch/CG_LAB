@@ -14,8 +14,9 @@
 > 按你的选做录屏 `D:\桌面\屏幕录制 2026-04-30 165927.gif` 拷贝到仓库：
 > `ray_tracing_lab/assets/optional_features_demo.gif`
 
-![ray tracing demo](assets/ray_tracing_demo.gif)
-![optional features demo](assets/optional_features_demo.gif)
+| 必做功能演示 | 选做功能演示 |
+|---|---|
+| ![ray tracing demo](assets/ray_tracing_demo.gif)<br/>硬阴影 + 镜面反射 + 迭代弹射 + 基础交互。 | ![optional features demo](assets/optional_features_demo.gif)<br/>玻璃折射/全反射 + MSAA 抗锯齿效果。 |
 
 ## 1. 环境与运行
 
@@ -52,17 +53,17 @@ python ray_tracing_taichi.py
 
 反射向量实现：
 
-\[
+$$
 \mathbf{R} = \mathbf{L}_{in} - 2(\mathbf{L}_{in}\cdot\mathbf{N})\mathbf{N}
-\]
+$$
 
 ## 4. 硬阴影与自相交修复（Shadow Acne）
 
 在暗影射线和反射射线中均使用法线偏移：
 
-\[
+$$
 \mathbf{P}_{new} = \mathbf{P} + \epsilon \mathbf{N},\quad \epsilon=10^{-4}
-\]
+$$
 
 这样可避免射线与自身表面立即相交导致的黑斑噪点。
 
@@ -72,11 +73,7 @@ python ray_tracing_taichi.py
 
 - 外部入射：`eta = eta_air / eta_glass`
 - 内部出射：翻转法线并交换介质折射率
-- 当
-\[
-1 - \eta^2(1-\cos^2\theta_i) < 0
-\]
-时判定为全反射，退化为镜面反射方向
+- 当 $1 - \eta^2(1-\cos^2\theta_i) < 0$ 时判定为全反射，退化为镜面反射方向
 
 ## 6. 选做：MSAA 抗锯齿（已实现）
 
