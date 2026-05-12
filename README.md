@@ -7,6 +7,7 @@
 * `week2_upload_package/`：Week2 MVP
 * `bezier_lab/`：贝塞尔曲线实验（Python + Taichi，De Casteljau 与 GPU 光栅化）
 * `phong_lab/`：**Phong 光照模型**（Taichi 光线投射、球与圆锥隐式求交、深度竞争、`ti.ui` 滑动条实时调参）。完整说明与实验报告见 **[phong_lab/README.md](phong_lab/README.md)**。
+* `work1_pytorch3d_lab/`：**PyTorch3D 可微渲染网格优化实验（球体 -> 奶牛）**。本仓库中 Work1 的唯一正式目录，完整实验报告见 **[work1_pytorch3d_lab/README.md](work1_pytorch3d_lab/README.md)**。
 
 ## 效果预览
 
@@ -24,3 +25,4 @@
 
 * `week2_upload_package/week2/`：MVP 实验代码（含三角形与立方体线框渲染）
 * `bezier_lab/`：贝塞尔相关代码与说明见该目录内文档
+* `work1_pytorch3d_lab/`：包含 Work1 的源码、环境文件、实验结果与提交说明；评审与复现请以该目录为准
