@@ -1,0 +1,21 @@
+name: cg-work1
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pytorch>=2.2
+  - torchvision
+  - pytorch-cuda=12.1
+  - numpy
+  - matplotlib
+  - imageio
+  - tqdm
+  - fvcore
+  - iopath
+  - ninja
+  - cmake
+  - pip
+  - pip:
+      - "git+https://github.com/facebookresearch/pytorch3d.git"
