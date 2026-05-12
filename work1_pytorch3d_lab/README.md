@@ -116,9 +116,9 @@ python -m src.Work1.main --mode both --steps 320 --image-size 320 --num-views 32
 
 ---
 
-## 5. 实验结果
+## 5. 实验结果展示
 
-## 5.1 必做结果（Silhouette）
+### 5.1 必做结果（Silhouette）
 
 推荐提交目录（已完成）：
 
@@ -140,13 +140,22 @@ python -m src.Work1.main --mode both --steps 320 --image-size 320 --num-views 32
 
 成果可视化（必做）：
 
-![Silhouette Turntable](outputs/work1/silhouette_20260512_183955/images/silhouette_turntable.gif)
+**最终效果**
 
-![Final RGB Compare](outputs/work1/silhouette_20260512_183955/images/final_rgb_compare.png)
+![Silhouette Turntable](./outputs/work1/silhouette_20260512_183955/images/silhouette_turntable.gif)
 
-![Silhouette Loss Curve](outputs/work1/silhouette_20260512_183955/plots/silhouette_losses.png)
+![Final RGB Compare](./outputs/work1/silhouette_20260512_183955/images/final_rgb_compare.png)
 
-## 5.2 选做结果（Textured / RGB 联合）
+![Silhouette Loss Curve](./outputs/work1/silhouette_20260512_183955/plots/silhouette_losses.png)
+
+**中间过程（球体逐步形变）**
+
+![Silhouette Step 25](./outputs/work1/silhouette_20260512_183955/images/silhouette_step_0025.png)
+![Silhouette Step 75](./outputs/work1/silhouette_20260512_183955/images/silhouette_step_0075.png)
+![Silhouette Step 125](./outputs/work1/silhouette_20260512_183955/images/silhouette_step_0125.png)
+![Silhouette Step 180](./outputs/work1/silhouette_20260512_183955/images/silhouette_step_0180.png)
+
+### 5.2 选做结果（Textured / RGB 联合）
 
 推荐提交目录（已完成）：
 
@@ -170,13 +179,22 @@ python -m src.Work1.main --mode both --steps 320 --image-size 320 --num-views 32
 
 成果可视化（选做）：
 
-![Textured Turntable](outputs/work1/textured_20260512_183217/images/textured_turntable.gif)
+**最终效果**
 
-![Textured RGB Step 180](outputs/work1/textured_20260512_183217/images/rgb_step_0180.png)
+![Textured Turntable](./outputs/work1/textured_20260512_183217/images/textured_turntable.gif)
 
-![Textured Loss Curve](outputs/work1/textured_20260512_183217/plots/textured_losses.png)
+![Textured RGB Step 180](./outputs/work1/textured_20260512_183217/images/rgb_step_0180.png)
 
-## 5.3 高质量加跑结果
+![Textured Loss Curve](./outputs/work1/textured_20260512_183217/plots/textured_losses.png)
+
+**中间过程（颜色与几何联合收敛）**
+
+![Textured RGB Step 25](./outputs/work1/textured_20260512_183217/images/rgb_step_0025.png)
+![Textured RGB Step 75](./outputs/work1/textured_20260512_183217/images/rgb_step_0075.png)
+![Textured RGB Step 125](./outputs/work1/textured_20260512_183217/images/rgb_step_0125.png)
+![Textured RGB Step 175](./outputs/work1/textured_20260512_183217/images/rgb_step_0175.png)
+
+### 5.3 高质量加跑结果（中间态）
 
 - `silhouette_20260512_184303`：已完整结束并产出完整结果
 - `textured_20260512_203105`：按需求手动停止，保留中间结果到 `step_0100`
@@ -185,7 +203,7 @@ python -m src.Work1.main --mode both --steps 320 --image-size 320 --num-views 32
 
 高质量中间结果（手动停止前）：
 
-![High Quality RGB Step 100](outputs/work1/textured_20260512_203105/images/rgb_step_0100.png)
+![High Quality RGB Step 100](./outputs/work1/textured_20260512_203105/rgb_step_0100.png)
 
 ---
 
