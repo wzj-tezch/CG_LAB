@@ -7,6 +7,7 @@
 * `week2_upload_package/`：Week2 MVP
 * `bezier_lab/`：贝塞尔曲线实验（Python + Taichi，De Casteljau 与 GPU 光栅化）
 * `phong_lab/`：**Phong 光照模型**（Taichi 光线投射、球与圆锥隐式求交、深度竞争、`ti.ui` 滑动条实时调参）。完整说明与实验报告见 **[phong_lab/README.md](phong_lab/README.md)**。
+* `mass_spring_lab/`：**质点弹簧模型**（布料仿真、三种数值积分器对比、剪切/弯曲弹簧、球体碰撞、动态风场）。完整说明与实验报告见 **[mass_spring_lab/README.md](mass_spring_lab/README.md)**。
 * `work1_pytorch3d_lab/`：**PyTorch3D 可微渲染网格优化实验（球体 -> 奶牛）**。本仓库中 Work1 的唯一正式目录，完整实验报告见 **[work1_pytorch3d_lab/README.md](work1_pytorch3d_lab/README.md)**。
 * `cloth_sim_taichi/`：**Taichi 布料仿真（质点-弹簧 + 三种积分器 + GGUI 交互）**。完整实验报告见 **[cloth_sim_taichi/README.md](cloth_sim_taichi/README.md)**。
 
