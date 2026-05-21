@@ -15,9 +15,7 @@
 
 ### 布料仿真交互（`cloth_sim_taichi`）
 
-动图源文件：`D:\桌面\屏幕录制 2026-05-21 180539.gif`（仓库内副本见 `cloth_sim_taichi/assets`）。
-
-![布料仿真交互预览](<cloth_sim_taichi/assets/屏幕录制 2026-05-21 180539.gif>)
+![布料仿真交互预览](cloth_sim_taichi/assets/interactive_demo_20260521.gif)
 
 ### Phong 光照（`phong_lab`）
 

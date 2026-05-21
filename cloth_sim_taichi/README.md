@@ -69,35 +69,35 @@ cloth_sim_taichi/
 
 - 胡克定律（弹力）：
 
-\[
+$$
 \mathbf{f}_{a} = -k_s \left(\|\mathbf{x}_a - \mathbf{x}_b\| - l\right)
 \frac{\mathbf{x}_a - \mathbf{x}_b}{\|\mathbf{x}_a - \mathbf{x}_b\|}
-\]
+$$
 
 - 阻尼力：
 
-\[
+$$
 \mathbf{f}_d = -k_d \mathbf{v}
-\]
+$$
 
 - 运动方程：
 
-\[
+$$
 \mathbf{a} = \frac{\mathbf{F}}{m}
-\]
+$$
 
 ---
 
 ### 4.2 三种积分方法
 
 - 显式欧拉（Explicit Euler）
-  - \(x_{t+1} = x_t + v_t \Delta t\)
-  - \(v_{t+1} = v_t + a_t \Delta t\)
+  - $x_{t+1} = x_t + v_t \Delta t$
+  - $v_{t+1} = v_t + a_t \Delta t$
 - 半隐式欧拉（Semi-Implicit Euler）
-  - \(v_{t+1} = v_t + a_t \Delta t\)
-  - \(x_{t+1} = x_t + v_{t+1} \Delta t\)
+  - $v_{t+1} = v_t + a_t \Delta t$
+  - $x_{t+1} = x_t + v_{t+1} \Delta t$
 - 隐式欧拉（定点迭代近似）
-  - 迭代逼近未来状态受力 \(a_{t+1}\)，提高稳定性
+  - 迭代逼近未来状态受力 $a_{t+1}$，提高稳定性
 
 ---
 
@@ -155,47 +155,46 @@ Python 端按顺序调用 `initialize_scene()`，避免并发状态不一致。
 
 ## 7. 动图结果展示
 
-> 本项目已生成一组示例 GIF + MP4，分别位于 `outputs/gifs/` 与 `outputs/mp4/`。  
-> 若用于答辩展示，建议优先使用 MP4。
+> 所有展示动图已放入 `assets/` 并使用英文文件名，便于 GitHub 直接预览。  
+> 交互录屏原文件约 64MB，仓库内提供压缩版 `interactive_demo_20260521.gif`（约 10MB）。
 
 ### 7.0 交互演示（GGUI 实时录屏）
 
-本段为运行 `main.py` 后，在 Taichi GGUI 中实时切换积分器、调节参数并观察布料与球体碰撞的录屏效果。  
-动图源文件：`D:\桌面\屏幕录制 2026-05-21 180539.gif`（仓库内副本见 `assets/`）。
+本段为运行 `main.py` 后，在 Taichi GGUI 中实时切换积分器、调节参数并观察布料与球体碰撞的录屏效果。
 
-![交互演示录屏](assets/屏幕录制%202026-05-21%20180539.gif)
+![交互演示录屏](assets/interactive_demo_20260521.gif)
 
 ### 7.1 三种积分器在 damping=1.0
 
 - Explicit Euler  
-![](outputs/gifs/explicit_damping_1.0.gif)
+![Explicit Euler, damping=1.0](assets/explicit_damping_1.0.gif)
 
 - Semi-Implicit Euler  
-![](outputs/gifs/semi_implicit_damping_1.0.gif)
+![Semi-Implicit Euler, damping=1.0](assets/semi_implicit_damping_1.0.gif)
 
 - Implicit Euler  
-![](outputs/gifs/implicit_damping_1.0.gif)
+![Implicit Euler, damping=1.0](assets/implicit_damping_1.0.gif)
 
 ### 7.2 三种积分器在 damping=5.0
 
 - Explicit Euler  
-![](outputs/gifs/explicit_damping_5.0.gif)
+![Explicit Euler, damping=5.0](assets/explicit_damping_5.0.gif)
 
 - Semi-Implicit Euler  
-![](outputs/gifs/semi_implicit_damping_5.0.gif)
+![Semi-Implicit Euler, damping=5.0](assets/semi_implicit_damping_5.0.gif)
 
 - Implicit Euler  
-![](outputs/gifs/implicit_damping_5.0.gif)
+![Implicit Euler, damping=5.0](assets/implicit_damping_5.0.gif)
 
 ### 7.3 选做效果对比
 
 - 无剪切/弯曲 vs 有剪切/弯曲  
-![](outputs/gifs/optional_without_shear_bending.gif)  
-![](outputs/gifs/optional_with_shear_bending.gif)
+![无剪切/弯曲](assets/optional_without_shear_bending.gif)  
+![有剪切/弯曲](assets/optional_with_shear_bending.gif)
 
 - 无碰撞 vs 有球碰撞  
-![](outputs/gifs/optional_without_collision.gif)  
-![](outputs/gifs/optional_with_collision.gif)
+![无碰撞](assets/optional_without_collision.gif)  
+![有球碰撞](assets/optional_with_collision.gif)
 
 ---
 
