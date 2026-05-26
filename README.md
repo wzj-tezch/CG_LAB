@@ -10,6 +10,7 @@
 * `mass_spring_lab/`：**质点弹簧模型**（布料仿真、三种数值积分器对比、剪切/弯曲弹簧、球体碰撞、动态风场）。完整说明与实验报告见 **[mass_spring_lab/README.md](mass_spring_lab/README.md)**。
 * `work1_pytorch3d_lab/`：**PyTorch3D 可微渲染网格优化实验（球体 -> 奶牛）**。本仓库中 Work1 的唯一正式目录，完整实验报告见 **[work1_pytorch3d_lab/README.md](work1_pytorch3d_lab/README.md)**。
 * `cloth_sim_taichi/`：**Taichi 布料仿真（质点-弹簧 + 三种积分器 + GGUI 交互）**。完整实验报告见 **[cloth_sim_taichi/README.md](cloth_sim_taichi/README.md)**。
+* `theory_homework/`：**理论课四次作业**（基础知识 / 几何 / 渲染 / 动画），含完整答案 `.md` 与 `.docx`。见 **[theory_homework/README.md](theory_homework/README.md)**。
 
 ## 效果预览
 
