@@ -33,11 +33,13 @@
 
 **6.** 变换矩阵（齐次坐标）：
 
-\[
-T = \begin{bmatrix} 2 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}
-\]
+```
+T = | 2  0  1 |
+    | 0  1  1 |
+    | 0  0  1 |
+```
 
-对点 \((x,y,1)^T\)：\(x' = 2x + 1,\; y' = y + 1\)。
+对点 `(x, y, 1)`：`x' = 2x + 1`，`y' = y + 1`。
 
 **答案：D** — 沿 x 轴放大 2 倍，同时沿 x、y 各平移 1 个单位。
 
@@ -48,13 +50,14 @@ T = \begin{bmatrix} 2 & 0 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}
 - **C** 错误：平行于**投影面**的平行线仍保持平行，不产生灭点；只有不与投影面平行的平行线才交于灭点。
 - **D** 正确：灭点是无穷远点在有限投影面上的像。
 
-**8.** 绕原点旋转 \(\alpha\) 角的 2×2 旋转矩阵为：
+**8.** 绕原点旋转 α 角的 2×2 旋转矩阵为：
 
-\[
-R(\alpha) = \begin{bmatrix} \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha \end{bmatrix}
-\]
+```
+R(α) = | cos α   -sin α |
+       | sin α    cos α |
+```
 
-若矩阵四个元素依次为 A、B、C、D，则 A=\(\cos\alpha\)，B=\(-\sin\alpha\)，C=\(\sin\alpha\)，D=\(\cos\alpha\)。题目中 **B 为 \(\sin\alpha\)**，应为 \(-\sin\alpha\)。
+若矩阵四个元素依次为 A、B、C、D，则 A = cos α，B = -sin α，C = sin α，D = cos α。题目中 **B 为 sin α**，应为 -sin α。
 
 **答案：B**
 
@@ -72,38 +75,34 @@ R(\alpha) = \begin{bmatrix} \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha 
 
 ### 2. 齐次坐标绕 z 轴旋转矩阵
 
-对 \((x,y,z,1)^T\)，绕 z 轴旋转 \(\theta\)：
+对 `(x, y, z, 1)`，绕 z 轴旋转 θ：
 
-\[
-R_z(\theta) = \begin{bmatrix}
-\cos\theta & -\sin\theta & 0 & 0 \\
-\sin\theta & \cos\theta  & 0 & 0 \\
-0         & 0          & 1 & 0 \\
-0         & 0          & 0 & 1
-\end{bmatrix}
-\]
+```
+Rz(θ) = | cos θ  -sin θ   0   0 |
+        | sin θ   cos θ   0   0 |
+        |   0       0     1   0 |
+        |   0       0     0   1 |
+```
 
 ### 3. 正方形复合变换（平移 + 绕新顶点旋转）
 
-设正方形顶点 A 为旋转中心，先沿 x 轴平移 n，再绕 A 顺时针旋转 \(\theta\)（顺时针即角度 \(-\theta\)）。
+设正方形顶点 A 为旋转中心，先沿 x 轴平移 n，再绕 A 顺时针旋转 θ（顺时针即角度 -θ）。
 
-1. 平移至 A 为原点：\(T_1 = \text{Trans}(-x_A, -y_A)\)
-2. 旋转：\(R(-\theta)\)
-3. 平移回去：\(T_2 = \text{Trans}(x_A+n, y_A)\)
+1. 平移至 A 为原点：`T1 = Trans(-xA, -yA)`
+2. 旋转：`R(-θ)`
+3. 平移回去：`T2 = Trans(xA + n, yA)`
 
-**复合矩阵**（右乘列向量）：\(M = T_2 \cdot R(-\theta) \cdot T_1 \cdot \text{Trans}(n,0)\)
+**复合矩阵**（右乘列向量）：`M = T2 · R(-θ) · T1 · Trans(n, 0)`
 
 展开 3×3 齐次形式（仅 x-y 平面）：
 
-\[
-M = \begin{bmatrix}
-\cos\theta & \sin\theta & x_A(1-\cos\theta)+y_A\sin\theta+n \\
--\sin\theta & \cos\theta & y_A(1-\cos\theta)-x_A\sin\theta \\
-0 & 0 & 1
-\end{bmatrix}
-\]
+```
+M = |  cos θ    sin θ   xA(1-cos θ)+yA·sin θ+n |
+    | -sin θ    cos θ   yA(1-cos θ)-xA·sin θ   |
+    |   0         0              1              |
+```
 
-（若 A 为平移后正方形左下角，将 \(x_A,y_A\) 代入即可。）
+（若 A 为平移后正方形左下角，将 xA、yA 代入即可。）
 
 ### 4. 计算机图形学 vs 计算机视觉
 

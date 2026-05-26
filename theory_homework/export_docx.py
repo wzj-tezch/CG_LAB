@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
-"""将 theory_homework 下的 Markdown 答案批量转为 Word。"""
+"""将 theory_homework 各子目录 README.md 批量转为 Word。"""
 import os
 import re
 from docx import Document
 from docx.shared import Inches, Pt
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-HW_DIRS = ["hw1_basics", "hw2_geometry", "hw3_rendering", "hw4_animation"]
+HW_DIRS = {
+    "hw1_basics": "202411081003-武子杰-理论课作业一-基础知识部分.docx",
+    "hw2_geometry": "202411081003-武子杰-理论课作业二-几何部分.docx",
+    "hw3_rendering": "202411081003-武子杰-理论课作业三-渲染部分.docx",
+    "hw4_animation": "202411081003-武子杰-理论课作业四-动画部分.docx",
+}
 
 
 def add_code_block(doc, lines):
@@ -67,7 +72,6 @@ def md_to_docx(md_path, out_path):
             text = re.sub(r"\*\*(.*?)\*\*", r"\1", line)
             text = re.sub(r"`([^`]+)`", r"\1", text)
             text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
-            text = re.sub(r"\\[\(\)]", "", text)
             if text.strip():
                 doc.add_paragraph(text.strip())
 
@@ -76,13 +80,12 @@ def md_to_docx(md_path, out_path):
 
 
 def main():
-    for hw in HW_DIRS:
+    for hw, docx_name in HW_DIRS.items():
         folder = os.path.join(BASE, hw)
-        for name in os.listdir(folder):
-            if name.endswith(".md"):
-                md_path = os.path.join(folder, name)
-                out_path = md_path[:-3] + ".docx"
-                md_to_docx(md_path, out_path)
+        md_path = os.path.join(folder, "README.md")
+        out_path = os.path.join(folder, docx_name)
+        if os.path.isfile(md_path):
+            md_to_docx(md_path, out_path)
 
 
 if __name__ == "__main__":
