@@ -1,0 +1,16 @@
+SMPL LBS Experiment Summary
+===========================
+Vertices: 6890
+Faces: 13776
+Joints: 24
+Betas dim: 10
+Model: D:\桌面\新建文件夹 (2)\CG_LAB_source\smpl_lbs_lab\models\smpl\SMPL_NEUTRAL.pkl
+
+Hand-written LBS vs official smplx forward:
+  Mean absolute error (MAE): 0.000000e+00
+  Max absolute error:        0.000000e+00
+
+Parameters used:
+  betas[0,:3] = [1.600000023841858, 0.8999999761581421, -0.6000000238418579]
+  global_orient = [0.0, 0.15000000596046448, 0.0]
+  body_pose nonzero joints: right_shoulder, right_elbow, left_shoulder, spine

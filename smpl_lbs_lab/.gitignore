@@ -1,0 +1,12 @@
+# SMPL model (licensed; download separately)
+models/**/*.pkl
+models/**/*.pkl.part
+models/hmr2_data*
+.using_fallback_model
+
+# animation intermediate frames (GIF is kept in assets/)
+outputs/anim_frames/
+
+# python
+__pycache__/
+*.py[cod]
