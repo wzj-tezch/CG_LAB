@@ -68,12 +68,12 @@ flowchart LR
     C --> D["(d) verts"]
 ```
 
-| 阶段 | 公式 | 代码关键量 |
+| 阶段 | 说明 | 代码关键量 |
 | :---: | :--- | :--- |
-| **(a)** 模板与权重 | 顶点 $\bar{T}$，权重 $w_{ik}$，$\sum_k w_{ik}=1$ | `v_template`, `lbs_weights` |
-| **(b)** 形状混合 | $T_{\mathrm{shape}} = \bar{T} + B_S(\beta)$ | `v_shaped`, `shapedirs` |
-| **(c)** 关节回归 | $J(\beta) = \mathcal{J}(T_{\mathrm{shape}})$ | `J_regressor`, `J` |
-| **(c)** 姿态校正 | $T_P = \bar{T} + B_S(\beta) + B_P(\theta)$ | `v_posed`, `posedirs` |
+| **(a)** 模板与权重 | 模板顶点 T̄，权重 w<sub>ik</sub>，Σw<sub>ik</sub>=1 | `v_template`, `lbs_weights` |
+| **(b)** 形状混合 | T<sub>shape</sub> = T̄ + B<sub>S</sub>(β) | `v_shaped`, `shapedirs` |
+| **(c)** 关节回归 | J(β) = 𝒥(T<sub>shape</sub>) | `J_regressor`, `J` |
+| **(c)** 姿态校正 | T<sub>P</sub> = T̄ + B<sub>S</sub>(β) + B<sub>P</sub>(θ) | `v_posed`, `posedirs` |
 | **(d)** 线性蒙皮 | 见下方公式 | `verts`, `J_transformed` |
 
 **阶段 (a)**：人体处于 T-pose，每个顶点 $i$ 对关节 $k$ 持有非负权重 $w_{ik}$，决定其将来跟随哪些骨骼运动。
@@ -108,11 +108,11 @@ $$
 
 | 变量 | 维度 | 含义 |
 | :--- | :--- | :--- |
-| `v_template` | $6890 \times 3$ | 模板 T-pose 顶点 |
-| `v_shaped` | $6890 \times 3$ | 加入 $B_S(\beta)$ 后 |
-| `J` | $24 \times 3$ | 由 `v_shaped` 回归的关节 |
-| `v_posed` | $6890 \times 3$ | 加入 $B_P(\theta)$ 后（尚未蒙皮） |
-| `verts` | $6890 \times 3$ | LBS 最终顶点 |
+| `v_template` | 6890 × 3 | 模板 T-pose 顶点 |
+| `v_shaped` | 6890 × 3 | 加入形状混合 B<sub>S</sub>(β) 后 |
+| `J` | 24 × 3 | 由 `v_shaped` 回归的关节 |
+| `v_posed` | 6890 × 3 | 加入姿态校正 B<sub>P</sub>(θ) 后（尚未蒙皮） |
+| `verts` | 6890 × 3 | LBS 最终顶点 |
 
 ### 2.3 可视化设置
 
@@ -120,9 +120,15 @@ $$
 
 | 设置项 | 值 |
 | :--- | :--- |
-| SMPL 坐标系 | Y 轴朝上，人体面向 $-Z$ |
-| 绘图坐标映射 | $(x,y,z)_{\mathrm{smpl}} \rightarrow (x,z,y)_{\mathrm{plot}}$ |
+| SMPL 坐标系 | Y 轴朝上，人体面向 −Z 方向 |
+| 绘图坐标映射 | 见下方公式 |
 | 相机参数 | `elev = 10°`，`azim = -90°` |
+
+坐标映射（绘图前将 SMPL 坐标转为正视图朝向）：
+
+$$
+(x,y,z)_{\mathrm{smpl}} \;\Rightarrow\; (x,z,y)_{\mathrm{plot}}
+$$
 
 ---
 
@@ -152,7 +158,7 @@ torch, smplx, numpy, scipy, matplotlib, trimesh, imageio, Pillow
 | 面片数 | **13776** |
 | 关节数 | **24** |
 | betas 维度 | **10** |
-| posedirs 维度 | **207**（$23 \times 9$） |
+| posedirs 维度 | **207**（23 × 9） |
 
 ---
 
