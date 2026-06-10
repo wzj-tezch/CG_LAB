@@ -103,7 +103,7 @@ $$
 
 演示录制（仓库内）：
 
-![demo](assets/ray_tracing_demo.gif)
+![demo](assets/original/ray_tracing_demo.gif)
 
 ## 六、结论
 
@@ -114,4 +114,4 @@ $$
 - 代码：`ray_tracing_taichi.py`
 - 说明：`README.md`
 - 依赖：`requirements.txt`
-- 演示：`assets/ray_tracing_demo.gif`
+- 演示：`assets/original/ray_tracing_demo.gif`（原始）；`assets/ray_tracing_demo_preview.gif`（README 预览）

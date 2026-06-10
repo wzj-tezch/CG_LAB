@@ -8,15 +8,17 @@
 
 ## 演示录制
 
-> 演示 GIF 需自行录屏后放入 `ray_tracing_lab/assets/`：
-> - `ray_tracing_demo.gif` — 必做功能（硬阴影、镜面反射、迭代弹射）
-> - `optional_features_demo.gif` — 选做功能（折射/全反射、MSAA）
->
-> 若 assets 目录中尚无 GIF，运行 `python ray_tracing_taichi.py` 交互录屏即可。
+README 内嵌 **预览版 GIF**（约 2 MB/张，加载更快）；**原始录屏**（完整分辨率与帧率）保存在 [`assets/original/`](assets/original/)。
 
 | 必做功能演示 | 选做功能演示 |
 |---|---|
-| ![ray tracing demo](assets/ray_tracing_demo.gif)<br/>硬阴影 + 镜面反射 + 迭代弹射 + 基础交互。 | ![optional features demo](assets/optional_features_demo.gif)<br/>玻璃折射/全反射 + MSAA 抗锯齿效果。 |
+| ![ray tracing demo preview](assets/ray_tracing_demo_preview.gif)<br/>硬阴影 + 镜面反射 + 迭代弹射 + 基础交互。<br/>[查看原始 GIF](assets/original/ray_tracing_demo.gif) | ![optional features demo preview](assets/optional_features_demo_preview.gif)<br/>玻璃折射/全反射 + MSAA 抗锯齿效果。<br/>[查看原始 GIF](assets/original/optional_features_demo.gif) |
+
+重新生成预览版：
+
+```bash
+python compress_demo_gifs.py
+```
 
 ## 1. 环境与运行
 
