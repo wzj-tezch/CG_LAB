@@ -8,11 +8,11 @@
 
 ## 演示录制
 
-> 按你的录屏文件 `D:\桌面\屏幕录制 2026-04-30 165037.gif` 拷贝到仓库：
-> `ray_tracing_lab/assets/ray_tracing_demo.gif`
+> 演示 GIF 需自行录屏后放入 `ray_tracing_lab/assets/`：
+> - `ray_tracing_demo.gif` — 必做功能（硬阴影、镜面反射、迭代弹射）
+> - `optional_features_demo.gif` — 选做功能（折射/全反射、MSAA）
 >
-> 按你的选做录屏 `D:\桌面\屏幕录制 2026-04-30 165927.gif` 拷贝到仓库：
-> `ray_tracing_lab/assets/optional_features_demo.gif`
+> 若 assets 目录中尚无 GIF，运行 `python ray_tracing_taichi.py` 交互录屏即可。
 
 | 必做功能演示 | 选做功能演示 |
 |---|---|

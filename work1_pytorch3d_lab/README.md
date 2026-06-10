@@ -247,8 +247,6 @@ python -m src.Work1.main --mode both --steps 320 --image-size 320 --num-views 32
 
 ---
 
-## 附：Work0 兼容运行方式
+## 相关实验
 
-```bash
-uv run -m src.Work0.main
-```
+- Work0 引力粒子群：[`work0_gravity_lab/`](../work0_gravity_lab/)（`uv run -m src.Work0.main`）
