@@ -1,5 +1,11 @@
 # 基于 SMPL 的线性混合蒙皮 (LBS) 可视化实验报告
 
+**姓名：** 武子杰  
+**学号：** 202411081003  
+**专业：** 计算机科学与技术（公费师范）  
+
+---
+
 <p align="center">
   <img src="outputs/comparison_grid.png" alt="四阶段 LBS 对比" width="720">
 </p>
@@ -17,6 +23,7 @@
 | **指导教师** | 张鸿文 |
 | **学生姓名** | 武子杰 |
 | **学号** | 202411081003 |
+| **专业** | 计算机科学与技术（公费师范） |
 | **实验日期** | 2026-05-29 |
 | **GitHub** | [wzj-tezch/CG_LAB](https://github.com/wzj-tezch/CG_LAB/tree/main/smpl_lbs_lab) |
 | **运行环境** | Windows 11 · Python 3.13.2 · PyTorch 2.x · smplx 0.1.28 |
